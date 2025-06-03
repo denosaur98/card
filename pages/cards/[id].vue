@@ -32,7 +32,6 @@
                   backgroundColor: color.color,
                   border: color.title === 'Белый' ? '1px solid var(--base-grey)' : 'none'
                 }"
-                :class="{ 'active-color': activeColor?.title === color.title }"
                 @click="changeActiveColor(color)"
               ></button>
             </div>
@@ -180,14 +179,27 @@ watch(cardItem, (newVal) => {
       }
 
       .info__row-block {
+        position: relative;
         display: flex;
         align-items: center;
         width: 100%;
         gap: 15px;
 
-        &.active-color {
-          border-bottom: 1px solid var(--base-light-black);
-        } 
+        .active-color {
+          position: relative;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--base-light-black);
+            transform: scaleX(1);
+            transition: transform 0.3s ease;
+          }
+        }
 
         .sizes__button-wrapper {
           display: flex;
