@@ -1,20 +1,20 @@
 <template>
   <header class="base-header">
     <NuxtLink to="/" class="header__logo-item">
-      <NuxtImg src="/assets/images/logo.png"/>
+      <img src="/assets/images/logo.png"/>
     </NuxtLink>
     <nav class="navigation">
       <NuxtLink to="/" class="navigation__item">
-        <NuxtImg src="/assets/icons/search.svg"/>
+        <img src="/assets/icons/search.svg"/>
       </NuxtLink>
       <NuxtLink to="/" class="navigation__item">
-        <NuxtImg src="/assets/icons/favorite.svg"/>
+        <img src="/assets/icons/favorite.svg"/>
       </NuxtLink>
       <NuxtLink to="/" class="navigation__item">
-        <NuxtImg src="/assets/icons/user.svg"/>
+        <img src="/assets/icons/user.svg"/>
       </NuxtLink>
       <NuxtLink to="/" class="navigation__item">
-        <NuxtImg src="/assets/icons/basket.svg"/>
+        <img src="/assets/icons/basket.svg"/>
       </NuxtLink>
     </nav>
   </header>

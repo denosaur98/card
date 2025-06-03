@@ -1,7 +1,9 @@
 <template>
   <div class="card-page">
     <div class="card-top-items">
-      <BaseSwiper/>
+      <BaseSwiper
+        :images="cardItem.images"
+      />
       <div class="card__info">
         <div class="info__column-block">
           <h1 class="info__title">{{ cardItem.title }}</h1>
@@ -19,7 +21,11 @@
         <div class="info__column-block" v-if="cardItem.colors">
           <h3 class="info__subtitle">Цвет: {{ activeColor?.title }}</h3>
           <div class="info__row-block">
-            <div v-for="(color, index) in cardItem.colors" :key="index" class="row__color-buttons-wrapper">
+            <div 
+              v-for="(color, index) in cardItem.colors" 
+              :key="index" 
+              :class="{ 'active-color': activeColor?.title === color.title }"
+            >
               <button
                 class="row__color-button" 
                 :style="{
@@ -35,17 +41,21 @@
         <div class="info__row-block">
           <button class="row__add-button">Добавить в корзину</button>
           <button class="row__favorite-button">
-            <NuxtImg src="/assets/icons/favorite.svg"/>
+            <img src="/assets/icons/favorite.svg"/>
           </button>
         </div>
         <div class="info__column-block" v-if="cardItem.colors">
           <div class="accordion__item">
             <p class="accordion__title">Описание</p>
-            <NuxtImg src="/assets/icons/plus.svg" class="accordion__icon"/>
+            <div class="accordion__icon">
+              <img src="/assets/icons/plus.svg"/>
+            </div>
           </div>
           <div class="accordion__item">
             <p class="accordion__title">Состав и уход</p>
-            <NuxtImg src="/assets/icons/plus.svg" class="accordion__icon"/>
+            <div class="accordion__icon">
+              <img src="/assets/icons/plus.svg"/>
+            </div>
           </div>
         </div>
       </div>
@@ -107,9 +117,9 @@ watch(cardItem, (newVal) => {
 
   .card-top-items {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    max-width: 80%;
+    gap: 60px;
 
     .card__info {
       display: flex;
@@ -158,6 +168,10 @@ watch(cardItem, (newVal) => {
         align-items: center;
         width: 100%;
         gap: 15px;
+
+        &.active-color {
+          border-bottom: 1px solid var(--base-light-black);
+        } 
 
         .sizes__button-wrapper {
           display: flex;
@@ -222,9 +236,18 @@ watch(cardItem, (newVal) => {
           letter-spacing: 0%;
           text-align: center;
           text-transform: uppercase;
-          border: none;
+          border: 1px solid var(--base-black);
           width: 100%;
           height: 50px;
+          transition: all 0.3s ease;
+
+          @media(hover:hover) {
+            &:hover {
+              border: 1px solid var(--base-black);
+              color: var(--base-black);
+              background: var(--base-white);
+            }
+          }
         }
 
         .row__favorite-button {
@@ -268,8 +291,18 @@ watch(cardItem, (newVal) => {
           text-transform: uppercase;
 
           .accordion__icon {
-            width: 20px;
-            height: 20px;
+            min-width: 50px;
+            min-height: 50px;
+            max-width: 50px;
+            margin: 50px;
+            width: 100%;
+            height: 100%;
+
+            img {
+              background-size: cover;
+              width: 100%;
+              height: 100%;
+            }
           }
         }
       }
@@ -299,8 +332,8 @@ watch(cardItem, (newVal) => {
       align-items: center;
       justify-content: space-between;
       width: 100%;
-
-
+      flex-wrap: wrap;
+      gap: 10px;
     }
   }
 }
