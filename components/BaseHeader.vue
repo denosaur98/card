@@ -33,6 +33,10 @@
   padding: 35px 50px;
   width: 100%;
 
+  @media (max-width: 900px) {
+    padding: 20px;
+  }
+
   .header__logo-item {
     position: absolute;
     width: 60px;

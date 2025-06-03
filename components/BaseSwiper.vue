@@ -1,6 +1,6 @@
 <template>
   <div :class="props.containerClass" class="custom-swiper-container">
-    <div class="custom-pagination">
+    <div class="custom-pagination" v-if="!isMobile">
       <button 
         v-for="(image, index) in props.images" 
         :key="'thumb-'+index"
@@ -21,6 +21,7 @@
         nextEl: '.custom-next',
         prevEl: '.custom-prev'
       }"
+      :pagination="isMobile ? { clickable: true } : false"
       @swiper="onSwiper"
       @slide-change="onSlideChange"
       class="swiper"
@@ -39,19 +40,25 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const props = defineProps({
   images: Array,
 })
 
-const modules = [Navigation]
+const modules = [Navigation, Pagination]
 const swiperInstance = ref(null)
 const activeIndex = ref(0)
+const isMobile = ref(false)
+
+function checkScreenSize() {
+  isMobile.value = window.innerWidth <= 900
+}
 
 function onSwiper(swiper) {
   swiperInstance.value = swiper
@@ -66,6 +73,15 @@ function slideTo(index) {
     swiperInstance.value.slideTo(index)
   }
 }
+
+onMounted(() => {
+  checkScreenSize()
+  window.addEventListener('resize', checkScreenSize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', checkScreenSize)
+})
 </script>
 
 <style lang="scss">
@@ -81,8 +97,7 @@ function slideTo(index) {
 
   @media (max-width: 900px) {
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     gap: 0;
   }
 }
@@ -90,6 +105,22 @@ function slideTo(index) {
 .swiper {
   width: 100%;
   overflow: hidden;
+  
+  :deep(.swiper-pagination) {
+    bottom: 10px !important;
+    
+    .swiper-pagination-bullet {
+      background: white;
+      opacity: 0.5;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px !important;
+      
+      &-active {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .swiper-slide {
@@ -107,6 +138,10 @@ function slideTo(index) {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 }
 
 .pagination-thumb {
@@ -119,10 +154,6 @@ function slideTo(index) {
   border: none;
   padding: 0;
   opacity: 1;
-
-  @media (max-width: 900px) {
-    display: none;
-  }
   
   img {
     width: 100%;
@@ -152,6 +183,10 @@ function slideTo(index) {
   }
 }
 
+.swiper-pagination-bullet-active {
+  background: var(--base-grey);
+}
+
 .custom-prev,
 .custom-next {
   position: absolute;
@@ -169,6 +204,11 @@ function slideTo(index) {
   cursor: pointer;
   transition: all 0.3s ease;
 
+  @media (max-width: 900px) {
+    width: 30px;
+    height: 30px;
+  }
+
   @media (hover:hover) {
     &:hover {
       background: var(--base-black);
@@ -183,11 +223,20 @@ function slideTo(index) {
     width: 15px;
     height: 15px;
     transition: all 0.3s ease;
+
+    @media (max-width: 900px) {
+      width: 12px;
+      height: 12px;
+    }
   }
 }
 
 .custom-prev {
   left: 20px;
+
+  @media (max-width: 900px) {
+    left: 10px;
+  }
   
   img {
     transform: rotate(180deg);
@@ -196,6 +245,10 @@ function slideTo(index) {
 
 .custom-next {
   right: 20px;
+
+  @media (max-width: 900px) {
+    right: 10px;
+  }
 }
 
 .swiper-button-disabled {
