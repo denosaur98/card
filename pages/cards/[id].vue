@@ -243,6 +243,7 @@ watch(cardItem, (newVal) => {
             border: 1px solid var(--base-black);
             background: var(--base-black);
             color: var(--base-white) !important;
+            transition: .5s;
           }
 
           .not-disabled {
@@ -290,7 +291,7 @@ watch(cardItem, (newVal) => {
           border: 1px solid var(--base-black);
           width: 100%;
           height: 50px;
-          transition: all 0.3s ease;
+          transition: all 0.5s ease;
 
           @media(hover:hover) {
             &:hover {

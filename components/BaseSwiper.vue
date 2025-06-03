@@ -124,12 +124,21 @@ onBeforeUnmount(() => {
 }
 
 .swiper-slide {
+  cursor: pointer;
   width: 100%;
+  overflow: hidden;
   
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 1s;
+
+    @media(hover:hover) {
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 }
 
