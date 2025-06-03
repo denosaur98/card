@@ -44,7 +44,7 @@ import CardsData from '../server/cardsData.json'
   @media (max-width: 490px) {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: nowrap;
     gap: 10px;
     padding: 0 20px;
