@@ -73,7 +73,7 @@
       <div class="cards__container">
         <NuxtLink
           v-if="CardsData"
-          v-for="card in CardsData"
+          v-for="card in filteredCardItems"
           :key="card.id"
           :to="`/cards/${card.id}`"
         >
@@ -113,6 +113,10 @@ function changeActiveSize(size) {
     activeSize.value = size
   }
 }
+
+const filteredCardItems = computed(() => {
+  return CardsData.filter(i => i.id !== Number(route.params.id))
+})
 
 watch(cardItem, (newVal) => {
   if (newVal?.colors?.length) {
@@ -375,6 +379,7 @@ watch(cardItem, (newVal) => {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    max-width: max-content;
     gap: 30px;
 
     @media (max-width: 900px) {
