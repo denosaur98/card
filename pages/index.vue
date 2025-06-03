@@ -30,5 +30,10 @@ import CardsData from '../server/cardsData.json'
   width: 100%;
   height: 100%;
   padding: 0 50px;
+  gap: 30px;
+
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
 }
 </style>

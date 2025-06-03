@@ -362,6 +362,11 @@ watch(cardItem, (newVal) => {
       width: 100%;
       flex-wrap: wrap;
       gap: 10px;
+
+      @media (max-width: 720px) {
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }
