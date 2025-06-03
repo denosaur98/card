@@ -1,6 +1,11 @@
 [
   {
     "id": 1,
+    "images": [
+      "/assets/images/cards/1.png",
+      "/assets/images/cards/2.png",
+      "/assets/images/cards/3.png"
+    ],
     "title": "Жакет удлиненный, белый",
     "price": 8900,
     "sizes": [
@@ -9,34 +14,69 @@
         "amount": "мало"
       },
       {
-        "title": "xs"
+        "title": "s"
       },
       {
-        "title": "xs",
+        "title": "m",
         "amount": "подписка"
+      }
+    ],
+    "colors": [
+      {
+        "title": "Белый",
+        "color": "#FFFFFF"
+      },
+      {
+        "title": "Черный",
+        "color": "#000000"
+      },
+      {
+        "title": "Бежевый",
+        "color": "#F9F1DC"
       }
     ]
   },
   {
     "id": 2,
+    "images": [
+      "/assets/images/cards/4.png"
+    ],
     "title": "Платье с v-образным вырезом, белый",
     "price": 14900,
+    "oldPrice": 8000,
     "sizes": [
       {
         "title": "xs",
         "amount": "мало"
       },
       {
-        "title": "xs"
+        "title": "s"
       },
       {
-        "title": "xs",
+        "title": "m",
         "amount": "подписка"
+      }
+    ],
+    "colors": [
+      {
+        "title": "Белый",
+        "color": "#FFFFFF"
+      },
+      {
+        "title": "Черный",
+        "color": "#000000"
+      },
+      {
+        "title": "Бежевый",
+        "color": "#F9F1DC"
       }
     ]
   },
   {
     "id": 3,
+    "images": [
+      "/assets/images/cards/5.png"
+    ],
     "title": "Жакет двубортный, серо-голубой",
     "price": 8900,
     "sizes": [
@@ -45,16 +85,33 @@
         "amount": "мало"
       },
       {
-        "title": "xs"
+        "title": "s"
       },
       {
-        "title": "xs",
+        "title": "m",
         "amount": "подписка"
+      }
+    ],
+    "colors": [
+      {
+        "title": "Белый",
+        "color": "#FFFFFF"
+      },
+      {
+        "title": "Черный",
+        "color": "#000000"
+      },
+      {
+        "title": "Бежевый",
+        "color": "#F9F1DC"
       }
     ]
   },
   {
     "id": 4,
+    "images": [
+      "/assets/images/cards/6.png"
+    ],
     "title": "Платье макси с ярусами, белый",
     "price": 10500,
     "sizes": [
@@ -63,16 +120,33 @@
         "amount": "мало"
       },
       {
-        "title": "xs"
+        "title": "s"
       },
       {
-        "title": "xs",
+        "title": "m",
         "amount": "подписка"
+      }
+    ],
+    "colors": [
+      {
+        "title": "Белый",
+        "color": "#FFFFFF"
+      },
+      {
+        "title": "Черный",
+        "color": "#000000"
+      },
+      {
+        "title": "Бежевый",
+        "color": "#F9F1DC"
       }
     ]
   },
   {
     "id": 5,
+    "images": [
+      "/assets/images/cards/7.png"
+    ],
     "title": "Комбинезон со стойкой, белый",
     "price": 9500,
     "sizes": [
@@ -81,11 +155,25 @@
         "amount": "мало"
       },
       {
-        "title": "xs"
+        "title": "s"
       },
       {
-        "title": "xs",
+        "title": "m",
         "amount": "подписка"
+      }
+    ],
+    "colors": [
+      {
+        "title": "Белый",
+        "color": "#FFFFFF"
+      },
+      {
+        "title": "Черный",
+        "color": "#000000"
+      },
+      {
+        "title": "Бежевый",
+        "color": "#F9F1DC"
       }
     ]
   }

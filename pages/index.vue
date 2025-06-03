@@ -5,7 +5,12 @@
       :key="card.id"
       :to="`/cards/${card.id}`"
     >
-      <BaseCardItem/>
+      <BaseCardItem
+        :cardImage="card.images[0]"
+        :cardTitle="card.title"
+        :cardPrice="card.price"
+        :cardOldPrice="card.oldPrice"
+      />
     </NuxtLink>
   </div>
 </template>
@@ -21,7 +26,9 @@ import CardsData from '../server/cardsData.json'
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   height: 100%;
+  padding: 0 50px;
 }
 </style>
