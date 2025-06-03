@@ -70,7 +70,12 @@
       }
 
       &.basket { order: 3; margin-left: auto; }
-      &.favorite { display: none; }
+      &.favorite { 
+      
+        @media (max-width: 900px) {
+          display: none;        
+        }
+      }
       &.search { order: 1; }
       &.user { order: 2; }
     }
