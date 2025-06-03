@@ -41,11 +41,13 @@ import CardsData from '../server/cardsData.json'
     justify-content: center;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 490px) {
     display: grid;
     grid-template-columns: repeat(2, auto);
     justify-content: flex-start;
     flex-wrap: nowrap;
+    gap: 10px;
+    padding: 0 20px;
   }
 }
 </style>
