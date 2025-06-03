@@ -367,6 +367,13 @@ watch(cardItem, (newVal) => {
         align-items: center;
         justify-content: center;
       }
+
+      @media (max-width: 390px) {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+      }
     }
   }
 }

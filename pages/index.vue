@@ -35,5 +35,17 @@ import CardsData from '../server/cardsData.json'
   @media (max-width: 800px) {
     justify-content: center;
   }
+
+  @media (max-width: 720px) {
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 800px) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
 }
 </style>

@@ -32,11 +32,21 @@ const props = defineProps({
   max-width: 335px;
   width: 100%;
 
+  @media (max-width: 720px) {
+    max-width: 170px;
+    max-height: 280px;
+    height: 100%;
+  }
+
   .card__image-wrapper {
     width: 100%;
     height: 445px;
     overflow: hidden;
     z-index: 999;
+
+    @media (max-width: 720px) {
+      height: 225px;
+    }
 
     .card__image {
       width: 100%;
@@ -57,6 +67,11 @@ const props = defineProps({
     flex-direction: column;
     align-items: flex-start;
     padding: 15px;
+    width: 100%;
+
+    @media (max-width: 720px) {
+      height: 80px;
+    }
 
     .info__title {
       color: var(--base-black);
