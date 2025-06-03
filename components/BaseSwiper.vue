@@ -29,10 +29,10 @@
       <SwiperSlide v-for="(image, index) in props.images" :key="index">
         <NuxtImg :src="image"/>
       </SwiperSlide>
-      <div class="custom-prev">
+      <div class="custom-prev" v-if="props.images.length > 1">
         <img src="/assets/icons/arrow.svg" alt="Previous" />
       </div>
-      <div class="custom-next">
+      <div class="custom-next" v-if="props.images.length > 1">
         <img src="/assets/icons/arrow.svg" alt="Next" />
       </div>
     </Swiper>
