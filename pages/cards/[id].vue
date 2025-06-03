@@ -13,8 +13,17 @@
           <h3 class="info__subtitle">Размеры:</h3>
           <div class="info__row-block">
             <div v-for="(button, index) in cardItem.sizes" :key="index" class="sizes__button-wrapper">
-              <button :class="button.amount === 'подписка' ? 'sizes__button disabled' : 'sizes__button active'">{{ button.title }}</button>
-              <p v-if="button.amount" :class="button.amount === 'подписка' ? 'amount disabled' : 'amount active'">{{ button.amount }}</p>
+              <button 
+                :class="[
+                  'sizes__button',
+                  button.amount === 'подписка' ? 'disabled' : 'not-disabled',
+                  activeSize?.title === button.title ? 'active-size' : ''
+                ]" 
+                @click="changeActiveSize(button)"
+              >
+                {{ button.title }}
+              </button>
+              <p v-if="button.amount" :class="button.amount === 'подписка' ? 'amount disabled' : 'amount not-disabled'">{{ button.amount }}</p>
             </div>
           </div>
         </div>
@@ -96,6 +105,13 @@ const cardItem = computed(() => {
 const activeColor = ref(null)
 function changeActiveColor(color) {
   activeColor.value = color
+}
+
+const activeSize = ref(null)
+function changeActiveSize(size) {
+  if (size.amount !== 'подписка') {
+    activeSize.value = size
+  }
 }
 
 watch(cardItem, (newVal) => {
@@ -219,10 +235,17 @@ watch(cardItem, (newVal) => {
             letter-spacing: 0%;
             text-align: left;
             text-transform: uppercase;
-            background: none;
+            background: inherit;
+            color: inherit;
           }
 
-          .active {
+          .active-size {
+            border: 1px solid var(--base-black);
+            background: var(--base-black);
+            color: var(--base-white) !important;
+          }
+
+          .not-disabled {
             border: 1px solid var(--base-black);
             color: var(--base-black);
           }
