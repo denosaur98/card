@@ -114,6 +114,11 @@ watch(cardItem, (newVal) => {
   width: 100%;
   height: 100%;
   gap: 30px;
+  padding: 0 40px;
+
+  @media (max-width: 900px) {
+    padding: 0;
+  }
 
   .card-top-items {
     display: flex;
@@ -121,11 +126,22 @@ watch(cardItem, (newVal) => {
     width: 100%;
     gap: 60px;
 
+    @media (max-width: 900px) {
+      flex-direction: column;
+      gap: 30px;
+    }
+
     .card__info {
+      position: relative;
       display: flex;
       flex-direction: column;
       width: 360px;
       gap: 35px;
+
+      @media (max-width: 900px) {
+        width: 100%;
+        padding: 0 20px;
+      }
 
       .info__column-block {
         display: flex;
@@ -260,6 +276,15 @@ watch(cardItem, (newVal) => {
           border: 1px solid var(--base-black);
           background: none;
 
+          @media (max-width: 900px) {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            border: none;
+            width: max-content;
+            height: max-content;
+          }
+
           img {
             width: 25px;
             height: 25px;
@@ -315,7 +340,10 @@ watch(cardItem, (newVal) => {
     align-items: flex-start;
     width: 100%;
     gap: 30px;
-    padding: 0 40px;
+
+    @media (max-width: 900px) {
+      padding: 0 20px;
+    }
 
     .items__block-title {
       color: var(--base-black);

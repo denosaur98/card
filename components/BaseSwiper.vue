@@ -74,6 +74,17 @@ function slideTo(index) {
   display: flex;
   width: 700px;
   gap: 30px;
+
+  @media (max-width: 1100px) {
+    width: 500px;
+  }
+
+  @media (max-width: 900px) {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
 }
 
 .swiper {
@@ -108,6 +119,10 @@ function slideTo(index) {
   border: none;
   padding: 0;
   opacity: 1;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
   
   img {
     width: 100%;
