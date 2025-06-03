@@ -6,8 +6,8 @@
     <div class="card__info">
       <h1 class="info__title">{{ props.cardTitle }}</h1>
       <div class="info__price-wrapper">
-        <p class="price" v-if="props.cardPrice">{{ props.cardPrice }}</p>
-        <p class="old-price" v-if="props.cardOldPrice">{{ props.cardOldPrice }}</p>
+        <p class="price" v-if="props.cardPrice">{{ props.cardPrice }} RUB</p>
+        <p class="old-price" v-if="props.cardOldPrice">{{ props.cardOldPrice }} RUB</p>
       </div>
     </div>
   </div>
@@ -86,6 +86,7 @@ const props = defineProps({
     .info__price-wrapper {
       display: flex;
       align-items: center;
+      margin-top: auto;
       gap: 10px;
 
       .price {
